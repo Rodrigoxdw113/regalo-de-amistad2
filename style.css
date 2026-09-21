@@ -1,0 +1,1137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+
+    background: #000;
+
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+}
+.inicio {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #07140c 0%,
+            #020704 45%,
+            #000 100%
+        );
+
+    transition:
+        opacity 1.5s ease,
+        visibility 1.5s ease;
+}
+
+.inicio.oculto {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+.intro {
+    animation:
+        aparecerIntro 2s ease forwards;
+}
+
+
+.intro h1 {
+    margin-bottom: 12px;
+
+    font-size:
+        clamp(55px, 12vw, 100px);
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    color: #f8f8f8;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,.2);
+}
+
+
+.intro p {
+    margin-bottom: 25px;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: #eeeeee;
+}
+
+
+#entrar {
+    padding: 7px 18px;
+
+    border: 0;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #458fff,
+            #1767dc
+        );
+
+    color: white;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 15px
+        rgba(20,100,255,.3);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+#entrar:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 25px
+        rgba(50,130,255,.6);
+}
+
+
+@keyframes aparecerIntro {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+.jardin {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 45%,
+            #13231a 0%,
+            #08130c 35%,
+            #020604 70%,
+            #000 100%
+        );
+
+    transition:
+        opacity 2s ease,
+        visibility 2s ease;
+}
+
+
+.jardin.activo {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+.estrellas {
+
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+.estrella {
+
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    box-shadow:
+        0 0 5px #fff,
+        0 0 10px rgba(255,255,255,.5);
+
+    opacity: 0;
+
+    animation:
+        aparecerEstrella
+        var(--duracion)
+        ease-in-out
+        infinite;
+
+    animation-delay:
+        var(--retraso);
+}
+
+
+@keyframes aparecerEstrella {
+
+    0%,
+    100% {
+        opacity: 0;
+
+        transform: scale(.5);
+    }
+
+    50% {
+        opacity: .9;
+
+        transform: scale(1.5);
+    }
+}
+.texto {
+
+    position: absolute;
+
+    top: 23%;
+
+    left: 50%;
+
+    width: 90%;
+
+    max-width: 850px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 50;
+
+    text-align: center;
+
+    opacity: 0;
+
+    animation:
+        aparecerTexto
+        2s
+        ease
+        4s
+        forwards;
+}
+
+
+.texto h2 {
+
+    margin-bottom: 18px;
+
+    color: #ffe13b;
+
+    font-size:
+        clamp(28px, 5vw, 48px);
+
+    letter-spacing: 7px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 8px rgba(255,220,30,.7),
+        0 0 20px rgba(255,220,30,.25);
+}
+
+
+.texto p {
+
+    margin: 8px auto;
+
+    color: #f4dc4a;
+
+    font-size:
+        clamp(12px, 1.7vw, 17px);
+
+    line-height: 1.6;
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 8px rgba(255,215,40,.3);
+}
+
+
+@keyframes aparecerTexto {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-50%)
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+}
+.jardin-flores {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -20px;
+
+    width: 650px;
+
+    height: 600px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 20;
+}
+.flor {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 150px;
+
+    height: var(--altura);
+
+    transform-origin:
+        bottom center;
+
+    animation:
+        balancearFlor
+        5s
+        ease-in-out
+        infinite;
+
+    animation-delay:
+        var(--retraso);
+
+    opacity: 0;
+
+    animation-fill-mode: forwards;
+}
+.flor:nth-child(1) {
+
+    left: 245px;
+
+    --altura: 500px;
+
+    --escala: 1;
+
+    --retraso: 0s;
+}
+
+
+.flor:nth-child(2) {
+
+    left: 115px;
+
+    --altura: 390px;
+
+    --escala: .8;
+
+    --retraso: -.8s;
+}
+
+
+.flor:nth-child(3) {
+
+    right: 95px;
+
+    --altura: 410px;
+
+    --escala: .82;
+
+    --retraso: -1.4s;
+}
+
+
+.flor:nth-child(4) {
+
+    right: 230px;
+
+    --altura: 330px;
+
+    --escala: .67;
+
+    --retraso: -2s;
+}
+
+
+.flor:nth-child(5) {
+
+    left: 10px;
+
+    --altura: 280px;
+
+    --escala: .55;
+
+    --retraso: -2.7s;
+}
+
+
+.flor:nth-child(6) {
+
+    right: 5px;
+
+    --altura: 300px;
+
+    --escala: .58;
+
+    --retraso: -3.3s;
+}
+.tallo {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 7px;
+
+    height: 85%;
+
+    transform:
+        translateX(-50%);
+
+    transform-origin:
+        bottom center;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            to right,
+            #073d19,
+            #278e36,
+            #0b461b
+        );
+
+    box-shadow:
+        0 0 4px rgba(50,160,60,.25);
+
+    animation:
+        crecerTallo
+        2s
+        cubic-bezier(.2,.7,.3,1)
+        forwards;
+}
+.hoja {
+
+    position: absolute;
+
+    width: 85px;
+
+    height: 38px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #47a938,
+            #15551e
+        );
+
+    border-radius:
+        100% 0 100% 0;
+
+    opacity: 0;
+
+    box-shadow:
+        0 0 8px rgba(40,130,50,.2);
+
+    animation:
+        aparecerHoja
+        1.5s
+        ease
+        forwards;
+}
+.hoja.izquierda {
+
+    left: calc(50% - 78px);
+
+    transform:
+        rotate(25deg)
+        scale(0);
+
+    transform-origin:
+        right center;
+}
+
+.hoja.derecha {
+
+    left: 50%;
+
+    transform:
+        rotate(-25deg)
+        scale(0);
+
+    transform-origin:
+        left center;
+}
+.hoja.h1 {
+
+    bottom: 27%;
+
+    animation-delay: 1.3s;
+}
+
+
+.hoja.h2 {
+
+    bottom: 39%;
+
+    animation-delay: 1.7s;
+}
+
+
+.hoja.h3 {
+
+    bottom: 51%;
+
+    animation-delay: 2s;
+}
+
+
+.hoja.h4 {
+
+    bottom: 62%;
+
+    animation-delay: 2.3s;
+}
+
+
+@keyframes aparecerHoja {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            rotate(var(--rotacion))
+            scale(0);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            rotate(var(--rotacion))
+            scale(1);
+    }
+}
+.cabeza {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 0;
+
+    width: 125px;
+
+    height: 125px;
+
+    transform:
+        translateX(-50%)
+        scale(0);
+
+    opacity: 0;
+
+    animation:
+        abrirFlor
+        2s
+        cubic-bezier(.2,.8,.2,1)
+        2.3s
+        forwards;
+}
+.petalo {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 42px;
+
+    height: 75px;
+
+  
+    transform-origin:
+        50% 100%;
+
+    border-radius:
+        70% 70% 45% 45%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff86b,
+            #ffe12b 45%,
+            #e8a900
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(255,220,30,.55);
+
+    animation:
+        respirarPetalo
+        3.5s
+        ease-in-out
+        infinite;
+
+    animation-delay:
+        var(--petalo-delay);
+}
+.petalo:nth-child(1) {
+
+    --angulo: 0deg;
+
+    --petalo-delay: 0s;
+}
+
+
+.petalo:nth-child(2) {
+
+    --angulo: 60deg;
+
+    --petalo-delay: -.5s;
+}
+
+
+.petalo:nth-child(3) {
+
+    --angulo: 120deg;
+
+    --petalo-delay: -1s;
+}
+
+
+.petalo:nth-child(4) {
+
+    --angulo: 180deg;
+
+    --petalo-delay: -1.5s;
+}
+
+
+.petalo:nth-child(5) {
+
+    --angulo: 240deg;
+
+    --petalo-delay: -2s;
+}
+
+
+.petalo:nth-child(6) {
+
+    --angulo: 300deg;
+
+    --petalo-delay: -2.5s;
+}
+@keyframes respirarPetalo {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-50%, -100%)
+            rotate(var(--angulo))
+            scale(.97);
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -100%)
+            rotate(
+                calc(
+                    var(--angulo) + 4deg
+                )
+            )
+            scale(1.04);
+    }
+}
+.centro {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 42px;
+
+    height: 42px;
+
+    
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 20;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #b77c20,
+            #6b3b08 55%,
+            #3a1d03
+        );
+
+    box-shadow:
+        inset 0 0 8px rgba(0,0,0,.8),
+
+        0 0 10px
+        rgba(255,180,20,.35);
+}
+@keyframes abrirFlor {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateX(-50%)
+            scale(0);
+    }
+
+    60% {
+
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            scale(1.12);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            scale(1);
+    }
+}
+@keyframes crecerTallo {
+
+    from {
+
+        height: 0;
+    }
+
+    to {
+
+        height: 85%;
+    }
+}
+@keyframes balancearFlor {
+
+    0%,
+    100% {
+
+        opacity: 1;
+
+        transform:
+            rotate(-2deg)
+            scale(var(--escala));
+    }
+
+    25% {
+
+        opacity: 1;
+
+        transform:
+            rotate(1.5deg)
+            scale(var(--escala));
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            rotate(3deg)
+            scale(var(--escala));
+    }
+
+    75% {
+
+        opacity: 1;
+
+        transform:
+            rotate(-1deg)
+            scale(var(--escala));
+    }
+}
+.boton-carta {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 25px;
+
+    z-index: 100;
+
+    transform:
+        translateX(-50%);
+
+    padding:
+        11px 22px;
+
+    border:
+        1px solid #f5d52b;
+
+    border-radius: 25px;
+
+    background:
+        rgba(0,0,0,.55);
+
+    color:
+        #f8df45;
+
+    font-family:
+        Georgia,
+        serif;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    animation:
+        aparecerBoton
+        1s
+        ease
+        7s
+        forwards;
+
+    transition:
+        .3s ease;
+}
+
+
+.boton-carta:hover {
+
+    background:
+        #f5d52b;
+
+    color:
+        #111;
+
+    box-shadow:
+        0 0 20px
+        rgba(255,220,40,.5);
+
+    transform:
+        translateX(-50%)
+        scale(1.05);
+}
+
+
+@keyframes aparecerBoton {
+
+    to {
+
+        opacity: 1;
+    }
+}
+.pantalla-carta {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,.88);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        .5s ease;
+}
+
+
+.pantalla-carta.abierta {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.carta {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 550px;
+
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    padding:
+        38px 28px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffde9,
+            #fff4ad
+        );
+
+    color:
+        #352606;
+
+    text-align: center;
+
+    box-shadow:
+        0 0 50px
+        rgba(255,220,40,.25);
+
+    transform:
+        translateY(30px)
+        scale(.9);
+
+    transition:
+        .5s ease;
+}
+
+
+.pantalla-carta.abierta .carta {
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+.corazon {
+
+    font-size: 40px;
+
+    margin-bottom: 8px;
+}
+
+
+.carta h2 {
+
+    color:
+        #a16d00;
+
+    font-size: 30px;
+}
+
+
+.separador {
+
+    width: 80px;
+
+    height: 2px;
+
+    margin:
+        15px auto 25px;
+
+    background:
+        #c99a20;
+}
+
+
+.carta p {
+
+    margin-bottom: 15px;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+.carta strong {
+
+    display: block;
+
+    margin-top: 22px;
+
+    color:
+        #9a6500;
+
+    font-size: 18px;
+}
+
+
+.cerrar {
+
+    position: absolute;
+
+    top: 8px;
+
+    right: 15px;
+
+    border: 0;
+
+    background: transparent;
+
+    color:
+        #805800;
+
+    font-size: 32px;
+
+    cursor: pointer;
+}
+@media (max-width: 600px) {
+
+    .intro h1 {
+
+        font-size: 65px;
+    }
+
+
+    .intro p {
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .texto {
+
+        top: 17%;
+
+        width: 92%;
+    }
+
+
+    .texto h2 {
+
+        font-size: 28px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .texto p {
+
+        font-size: 11px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .jardin-flores {
+
+        left:
+            calc(50% + 25px);
+
+        bottom: 35px;
+
+        transform:
+            translateX(-50%)
+            scale(.72);
+
+        transform-origin:
+            bottom center;
+    }
+
+
+    .boton-carta {
+
+        bottom: 12px;
+
+        font-size: 12px;
+
+        padding:
+            9px 17px;
+    }
+
+
+    .carta {
+
+        padding:
+            35px 20px;
+    }
+
+
+    .carta p {
+
+        font-size: 14px;
+    }
+}
